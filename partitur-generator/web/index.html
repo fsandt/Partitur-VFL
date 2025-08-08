@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Partitur Generator</title>
+  <style>
+    textarea { width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>Partitur Generator</h1>
+  <textarea id="description" rows="4" placeholder="Beschreibung eingeben"></textarea><br />
+  <button id="generate">Generieren</button>
+  <div id="result"></div>
+
+  <script>
+    const moods = {
+      happy: ["happy", "joyful", "cheerful", "glücklich"],
+      sad: ["sad", "melancholy", "down", "traurig"],
+      energetic: ["energetic", "fast", "aggressive", "energie"],
+      calm: ["calm", "peaceful", "serene", "ruhig"],
+    };
+    const instrumentsList = ["piano", "violin", "drums", "flute", "guitar", "bass"];
+    const patterns = {
+      happy: ["C5", "E5", "G5", "C6"],
+      sad: ["A4", "C5", "E5", "A5"],
+      energetic: ["C5", "D5", "E5", "G5", "A5", "C6"],
+      calm: ["C4", "E4", "G4", "E4"],
+      neutral: ["C4", "D4", "E4", "F4"],
+    };
+
+    function parseText(text) {
+      text = text.toLowerCase();
+      let mood = "neutral";
+      for (const [m, keys] of Object.entries(moods)) {
+        if (keys.some((k) => text.includes(k))) {
+          mood = m;
+          break;
+        }
+      }
+      const instruments = instrumentsList.filter((i) => text.includes(i));
+      if (instruments.length === 0) instruments.push("piano", "violin");
+      return { mood, instruments };
+    }
+
+    function generateScore(parsed) {
+      const pattern = patterns[parsed.mood] || patterns.neutral;
+      const scores = {};
+      parsed.instruments.forEach((inst) => {
+        scores[inst] = pattern.join(" ");
+      });
+      return scores;
+    }
+
+    document.getElementById("generate").addEventListener("click", () => {
+      const desc = document.getElementById("description").value;
+      const parsed = parseText(desc);
+      const scores = generateScore(parsed);
+      let html = `<h2>Kompositionsübersicht</h2>`;
+      html += `<p><strong>Stimmung:</strong> ${parsed.mood}</p>`;
+      html += `<p><strong>Instrumente:</strong> ${parsed.instruments.join(", ")}</p>`;
+      for (const [inst, notes] of Object.entries(scores)) {
+        html += `<h3>${inst}</h3><p>${notes}</p>`;
+      }
+      document.getElementById("result").innerHTML = html;
+    });
+  </script>
+</body>
+</html>
