@@ -21,8 +21,57 @@ PAGE_TEMPLATE = """
 <html>
 <head>
   <title>Partitur Generator</title>
+ dp0elr-codex/add-text-input-and-instrument-selection
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+=======
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      max-width: 800px;
+      margin-top: 40px;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    textarea {
+      width: 100%;
+      font-size: 16px;
+      margin-top: 1rem;
+    }
+    .instrument-list {
+      margin-top: 1rem;
+    }
+    .instrument-list label {
+      margin-right: 1rem;
+    }
+    button {
+      background: #0071e3;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background: #005bb5;
+    }
+    .sheet {
+      margin-top: 1.5rem;
+    }
+  </style>
+ main
 </head>
 <body>
   <div class="container">
