@@ -3,6 +3,8 @@
 ## Overview
 The Partitur Generator is an application designed to create musical scores for various instruments based on a given description text. This can include descriptions such as company profiles, moods, or any other narrative that can be translated into music.
 
+A static demo is available via GitHub Pages: https://<user>.github.io/Partitur-VFL/
+
 ## Features
 - **Text Processing**: Extracts mood and mentioned instruments from the description using a simple keyword based parser.
 - **Score Generation**: Creates a short melody for each requested instrument. If
@@ -16,20 +18,21 @@ main
 
 ## Project Structure
 ```
-partitur-generator
-├── src
-│   ├── main.py          # Entry point of the application
-│   ├── instruments      # Module for instrument definitions
-│   │   └── __init__.py
-│   ├── score            # Module for score generation
-│   │   └── generator.py
-│   └── utils           # Module for utility functions
-│       └── text_parser.py
-├── web                 # Static browser interface
+Partitur-VFL
+├── docs                 # Static browser interface for GitHub Pages
 │   └── index.html
-├── requirements.txt     # List of dependencies
-├── README.md            # Project documentation
-└── .gitignore           # Files to ignore in version control
+└── partitur-generator
+    ├── src
+    │   ├── main.py          # Entry point of the application
+    │   ├── instruments      # Module for instrument definitions
+    │   │   └── __init__.py
+    │   ├── score            # Module for score generation
+    │   │   └── generator.py
+    │   └── utils           # Module for utility functions
+    │       └── text_parser.py
+    ├── requirements.txt     # List of dependencies
+    ├── README.md            # Project documentation
+    └── .gitignore           # Files to ignore in version control
 ```
 
 ## Installation
@@ -57,7 +60,7 @@ MusicXML file per instrument (e.g. `piano.musicxml`).
 
 ### Web Interface (ohne Server)
 
-1. Öffne den Ordner `web` und doppelklicke auf `index.html` (oder ziehe die Datei in dein Browserfenster).
+1. Öffne die Datei `docs/index.html` im Browser oder besuche die GitHub Pages-Seite: https://<user>.github.io/Partitur-VFL/
 2. Gib im Textfeld eine Beschreibung ein, z. B. `Eine traurige Geschichte mit Violine`.
 3. Klicke auf **Generieren**.
 4. Unter dem Formular erscheinen Stimmung, Instrumente und die erzeugten Notenfolgen.
