@@ -9,6 +9,7 @@ The Partitur Generator is an application designed to create musical scores for v
   the `music21` library is available a separate MusicXML file is written for
   each instrument; otherwise the note names are printed to the console.
 - **Modular Design**: Organized into distinct modules for easy maintenance and scalability.
+- **Web Interface**: Simple Flask application for entering descriptions and viewing the generated score in the browser.
 
 ## Project Structure
 ```
@@ -41,15 +42,23 @@ partitur-generator
    ```
 
 ## Usage
-Run the application with a description text.  Example:
+ ulp6o9-codex/create-application-for-automated-score-generation
+Run the command line application with a description text. Example:
+
+ main
 ```
 python src/main.py "A happy company with piano and drums"
 ```
 This command prints a summary. When `music21` is installed it also writes one
 MusicXML file per instrument (e.g. `piano.musicxml`).
+ ulp6o9-codex/create-application-for-automated-score-generation
 
-## Contributing
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+### Web Interface
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+To use the browser-based interface start the Flask app:
+
+```
+python src/web.py
+```
+
+Then open `http://127.0.0.1:5000` in your browser and enter a description.
