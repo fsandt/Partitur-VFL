@@ -8,14 +8,30 @@ def parse_text(description):
     Returns:
         dict: A dictionary containing extracted information such as mood, instruments, and themes.
     """
-    # Placeholder for extracted data
+    description = description.lower()
+
+    moods = {
+        "happy": ["happy", "joyful", "cheerful", "gl\u00fccklich"],
+        "sad": ["sad", "melancholy", "down", "traurig"],
+        "energetic": ["energetic", "fast", "aggressive", "energie"],
+        "calm": ["calm", "peaceful", "serene", "ruhig"]
+    }
+    instruments = ["piano", "violin", "drums", "flute", "guitar", "bass"]
+
+    selected_mood = "neutral"
+    for mood, keywords in moods.items():
+        if any(keyword in description for keyword in keywords):
+            selected_mood = mood
+            break
+
+    selected_instruments = [inst for inst in instruments if inst in description]
+    if not selected_instruments:
+        selected_instruments = ["piano", "violin"]
+
     extracted_data = {
-        "mood": None,
-        "instruments": [],
+        "mood": selected_mood,
+        "instruments": selected_instruments,
         "themes": []
     }
-    
-    # Example parsing logic (to be implemented)
-    # This is where you would analyze the description and populate the extracted_data dictionary.
-    
+
     return extracted_data
