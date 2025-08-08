@@ -4,9 +4,12 @@
 The Partitur Generator is an application designed to create musical scores for various instruments based on a given description text. This can include descriptions such as company profiles, moods, or any other narrative that can be translated into music.
 
 ## Features
-- **Text Processing**: Extracts relevant information from the input description to inform the score generation.
-- **Score Generation**: Produces musical scores tailored for different instruments.
+- **Text Processing**: Extracts mood and mentioned instruments from the description using a simple keyword based parser.
+- **Score Generation**: Creates a short melody for each requested instrument. If
+  the `music21` library is available a separate MusicXML file is written for
+  each instrument; otherwise the note names are printed to the console.
 - **Modular Design**: Organized into distinct modules for easy maintenance and scalability.
+- **Web Interface**: Simple Flask application for entering descriptions and viewing the generated score in the browser.
 
 ## Project Structure
 ```
@@ -39,11 +42,22 @@ partitur-generator
    ```
 
 ## Usage
-To run the application, execute the following command:
+Run the command line application with a description text. Example:
 ```
-python src/main.py "Your description text here"
+python src/main.py "A happy company with piano and drums"
 ```
-Replace `"Your description text here"` with the actual description you want to convert into musical scores.
+This command prints a summary. When `music21` is installed it also writes one
+MusicXML file per instrument (e.g. `piano.musicxml`).
+
+### Web Interface
+
+To use the browser-based interface start the Flask app:
+
+```
+python src/web.py
+```
+
+Then open `http://127.0.0.1:5000` in your browser and enter a description.
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
