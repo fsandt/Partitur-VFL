@@ -9,7 +9,10 @@ The Partitur Generator is an application designed to create musical scores for v
   the `music21` library is available a separate MusicXML file is written for
   each instrument; otherwise the note names are printed to the console.
 - **Modular Design**: Organized into distinct modules for easy maintenance and scalability.
+ t7wv2f-codex/create-application-for-automated-score-generation
 - **Web Interface**: Static HTML page that can be opened directly in the browser without running a server.
+
+main
 
 ## Project Structure
 ```
@@ -44,12 +47,13 @@ partitur-generator
    ```
 
 ## Usage
-Run the command line application with a description text. Example:
+ main
 ```
 python src/main.py "A happy company with piano and drums"
 ```
 This command prints a summary. When `music21` is installed it also writes one
 MusicXML file per instrument (e.g. `piano.musicxml`).
+ t7wv2f-codex/create-application-for-automated-score-generation
 
 ### Web Interface (ohne Server)
 
@@ -57,9 +61,9 @@ MusicXML file per instrument (e.g. `piano.musicxml`).
 2. Gib im Textfeld eine Beschreibung ein, z. B. `Eine traurige Geschichte mit Violine`.
 3. Klicke auf **Generieren**.
 4. Unter dem Formular erscheinen Stimmung, Instrumente und die erzeugten Notenfolgen.
+ main
 
-## Contributing
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+```
+python src/web.py
+```
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
