@@ -9,7 +9,10 @@ The Partitur Generator is an application designed to create musical scores for v
   the `music21` library is available a separate MusicXML file is written for
   each instrument; otherwise the note names are printed to the console.
 - **Modular Design**: Organized into distinct modules for easy maintenance and scalability.
-- **Web Interface**: Simple Flask application for entering descriptions and viewing the generated score in the browser.
+ t7wv2f-codex/create-application-for-automated-score-generation
+- **Web Interface**: Static HTML page that can be opened directly in the browser without running a server.
+
+main
 
 ## Project Structure
 ```
@@ -22,6 +25,8 @@ partitur-generator
 │   │   └── generator.py
 │   └── utils           # Module for utility functions
 │       └── text_parser.py
+├── web                 # Static browser interface
+│   └── index.html
 ├── requirements.txt     # List of dependencies
 ├── README.md            # Project documentation
 └── .gitignore           # Files to ignore in version control
@@ -42,23 +47,23 @@ partitur-generator
    ```
 
 ## Usage
- ulp6o9-codex/create-application-for-automated-score-generation
-Run the command line application with a description text. Example:
-
  main
 ```
 python src/main.py "A happy company with piano and drums"
 ```
 This command prints a summary. When `music21` is installed it also writes one
 MusicXML file per instrument (e.g. `piano.musicxml`).
- ulp6o9-codex/create-application-for-automated-score-generation
+ t7wv2f-codex/create-application-for-automated-score-generation
 
-### Web Interface
+### Web Interface (ohne Server)
 
-To use the browser-based interface start the Flask app:
+1. Öffne den Ordner `web` und doppelklicke auf `index.html` (oder ziehe die Datei in dein Browserfenster).
+2. Gib im Textfeld eine Beschreibung ein, z. B. `Eine traurige Geschichte mit Violine`.
+3. Klicke auf **Generieren**.
+4. Unter dem Formular erscheinen Stimmung, Instrumente und die erzeugten Notenfolgen.
+ main
 
 ```
 python src/web.py
 ```
 
-Then open `http://127.0.0.1:5000` in your browser and enter a description.
