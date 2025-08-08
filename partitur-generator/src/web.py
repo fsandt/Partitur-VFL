@@ -21,6 +21,10 @@ PAGE_TEMPLATE = """
 <html>
 <head>
   <title>Partitur Generator</title>
+ dp0elr-codex/add-text-input-and-instrument-selection
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+=======
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -67,6 +71,7 @@ PAGE_TEMPLATE = """
       margin-top: 1.5rem;
     }
   </style>
+ main
 </head>
 <body>
   <div class="container">
